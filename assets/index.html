@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AssistentX - Dashboard</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="offcanvas offcanvas-start bg-body-tertiary border-end" tabindex="-1" id="sidebar" aria-labelledby="Menu" data-bs-backdrop="false" data-bs-scroll="true">
+
+        <div class="offcanvas-header flex-between px-3 py-2">
+            <button class="btn btn-outline-secondary" id="themeToggle" aria-label="Alternar tema">
+                <i class="iconeDark bi bi-brightness-high"></i>
+                <i class="iconeLight bi bi-moon"></i>
+            </button>
+            <button type="button" class="btn btn-outline-secondary" id="btnCloseSidebar" data-bs-dismiss="offcanvas" aria-label="Fechar Menu">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+        <div class="offcanvas-body p-0">
+            <div class="menu-search input-group p-2">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input type="search" class="form-control form-control-sm" placeholder="Buscar..." aria-label="Buscar" name="busca">
+            </div>
+
+            <ul class="nav flex-column px-2">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="Dashboard" href="#">
+                        <i class="bi bi-grid"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-wallet2"></i> Receitas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-receipt"></i> Despesas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-graph-up-arrow"></i> Patrimonio
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-pie-chart"></i> Modelos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-person"></i> Perfil
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </nav>
+
+    <header class="fixed-top flex-between border-bottom py-1 px-3 bg-body-tertiary">
+
+        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+            <i class="bi bi-list"></i>
+        </button>
+        <img src="./images/logoWhite.svg" class="logo logo-light" alt="Logo AssistentX">
+        <img src="./images/logoDark.svg" class="logo logo-dark" alt="Logo AssistentX">
+        <h5 class="m-0">Dashboard</h5>
+        
+    </header>
+
+	<main class="main px-3 bg-light-subtle"> <!--  CONTEÚDO PRINCIPAL  -->
+
+        <div class="row g-3 mb-3 align-items-stretch"> <!-- PRIMEIRA LINHA -->
+            <div class="col-md-5 d-flex flex-column gap-3"> <!-- CARDS RESUMO -->
+
+                <div class="cardProgresso"> <!-- DESPESAS -->
+                    <div class="card card-standard">
+                        <div class="card-body card-body-flex">
+                            <div class="flex-between">
+                                <h6 class="card-title">Despesas deste mês</h6>
+                                <a href="#" class="btn btn-primary btn-sm text-nowrap">Ver Despesas</a>
+                            </div>
+                            <p class="fs-4 fw-bold">R$8.157,41</p>
+                            <div>
+                                <small>Passamos R$157,41 do teto!</small>
+                                <div class="progress mt-2">
+                                    <div id="despesaProgress" class="progress-bar bg-warning"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cardProgresso"> <!-- RECEITAS -->
+                    <div class="card card-standard">
+                        <div class="card-body card-body-flex">
+                            <div class="flex-between">
+                                <h6 class="card-title">Receitas deste mês</h6>
+                                <a href="#" class="btn btn-primary btn-sm text-nowrap">Ver Receitas</a>
+                            </div>
+                            <p class="fs-4 fw-bold">R$9.000,00</p>
+                            <div>
+                                <small>Faltam R$ 1.000,00 para o objetivo!</small>
+                                <div class="progress mt-2">
+                                    <div id="receitaProgress" class="progress-bar bg-success"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cardProgresso"> <!-- INVESTIMENTOS -->
+                    <div class="card card-standard">
+                        <div class="card-body card-body-flex">
+                            <div class="flex-between">
+                                <h6 class="card-title">Investimentos deste mês</h6>
+                                <a href="#" class="btn btn-primary btn-sm text-nowrap">Ver Despesas</a>
+                            </div>
+                            <p class="fs-4 fw-bold">R$ 1.000,00</p>
+                            <div>
+                                <small>Faltam R$1.000 para atingir sua meta!</small>
+                                <div class="progress mt-2">
+                                    <div id="investProgress" class="progress-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-7"> <!-- SUGESTÕES DE AÇÕES -->
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Sugestões de Ações</h4>
+                        <ul class="list-unstyled">
+                            
+                            <li> <!-- ECONOMIA -->
+                                <h5 class="text-success sug-cat-title">💰 Economia</h5>
+
+                                <ul class="list-unstyled sug-cat-list">
+
+                                    <li class="list-item-flex">
+                                        <span>
+                                            💡 Diminuir despesas com desejos — evite compras impulsivas como pedir comida em casa
+                                        </span>
+                                        <a href="#" class="btn btn-outline-success sug-btn">Saiba mais</a>
+                                    </li>
+
+                                    <li class="list-item-flex">
+                                        <span>
+                                            🛒 Revisar assinaturas de apps e serviços — cancele os que não usa
+                                        </span>
+                                        <a href="#" class="btn btn-outline-success sug-btn">Ver assinaturas</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            
+                            <li><!-- INVESTIMENTOS -->
+                                <h5 class="text-primary sug-cat-title">📈 Investimentos</h5>
+
+                                <ul class="list-unstyled sug-cat-list">
+
+                                    <li class="list-item-flex">
+                                        <span>
+                                            🏢 Seu banco está com um Fundo Imobiliário imperdível! Vamos aumentar sua renda passiva mensal?
+                                        </span>
+                                        <a href="#" class="btn btn-outline-primary sug-btn">Ver FIIs</a>
+                                    </li>
+
+                                    <li class="list-item-flex">
+                                        <span>
+                                            📊 Quer automatizar um aporte mensal em renda fixa ou ações?
+                                        </span>
+                                        <a href="#" class="btn btn-outline-primary sug-btn">Configurar</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            
+                            <li><!-- DESENVOLVIMENTO PESSOAL -->
+                                <h5 class="text-warning sug-cat-title">📚 Desenvolvimento Pessoal</h5>
+
+                                <ul class="list-unstyled sug-cat-list">
+
+                                    <li class="list-item-flex">
+                                        <span>
+                                            📚 Investir em si mesmo — comece um curso online
+                                        </span>
+                                        <a href="#" class="btn btn-outline-warning sug-btn">Ver cursos</a>
+                                    </li>
+
+                                    <li class="list-item-flex">
+                                        <span>
+                                            📝 Ler livros sobre finanças ou produtividade
+                                        </span>
+                                        <a href="#" class="btn btn-outline-warning sug-btn">Sugestões</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mb-3"> <!-- SEGUNDA LINHA -->
+            <div class ="col-md-12"> <!-- DESPESAS POR CATEGORIA -->
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="flex-between mb-2"> <!-- LINHA DE TITULO DA TABELA -->
+                            <h5 class="card-title">Despesas por categoria</h5>
+                            <select id="filtroTipo" class="form-select w-auto">
+                                <option value="todos">Todos</option>
+                                <option value="essenciais">Essenciais</option>
+                                <option value="desejos">Desejos</option>
+                                <option value="investimentos">Investimentos</option>
+                            </select>
+                        </div>
+
+                        <table class="table" id="tabelaDespesas">
+                            <thead>
+                                <tr>
+                                    <th>Categoria</th>
+                                    <th>Valor (R$)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-bucket="desejos">
+                                    <td>Restaurantes</td>
+                                    <td>995,25</td>
+                                </tr>
+                                <tr data-bucket="investimentos">
+                                    <td>Ativos Financeiros</td>
+                                    <td>400,01</td>
+                                </tr>
+                                <tr data-bucket="essenciais">
+                                    <td>Aluguel</td>
+                                    <td>1500,17</td>
+                                </tr>
+                                <tr data-bucket="essenciais">
+                                    <td>Água/Luz/Gás</td>
+                                    <td>580,45</td>
+                                </tr>
+                                <tr data-bucket="essenciais">
+                                    <td>Transporte</td>
+                                    <td>300,76</td>
+                                </tr>
+                                <tr data-bucket="essenciais">
+                                    <td>Mercado</td>
+                                    <td>3300,23</td>
+                                </tr>
+                                <tr data-bucket="essenciais">
+                                    <td>Saúde</td>
+                                    <td>899,99</td>
+                                </tr>
+                                <tr data-bucket="desejos">
+                                    <td>Lazer</td>
+                                    <td>580,56</td>
+                                </tr>
+                                <tr data-bucket="investimentos">
+                                    <td>Educação</td>
+                                    <td>599,99</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Total</td>
+                                    <td id="totalDespesas">0,00</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mb-3"> <!-- TERCEIRA LINHA -->
+            <div class ="col-md-12"> <!-- PATRIMONIO -->
+                <div class="card shadow-sm"> 
+                    <div class="card-body">
+                        <div class="flex-between mb-2"> <!-- LINHA DE TITULO DA TABELA -->
+                            <h5 class="card-title">Patrimônio Investido</h5>
+                            <div>
+                                <a href="#" class="btn btn-primary btn-sm">Ver Patrimonio</a>
+                                <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#corpoTabela1">
+                                Detalhar
+                                </button>
+                            </div>
+                        </div>
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Investimento</th>
+                                    <th>Valor (R$)</th>
+                                    <th>Rendimento (%)</th>
+                                    <th>Receita Mensal (R$)</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="collapse" id="corpoTabela1">
+                                <tr>
+                                    <td>Renda Fixa</td>
+                                    <td>5.000,00</td>
+                                    <td>1,2</td>
+                                    <td>60,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Ações</td>
+                                    <td>8.000,00</td>
+                                    <td>2,5</td>
+                                    <td>200,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Fundo Imobiliário</td>
+                                    <td>5.400,00</td>
+                                    <td>0,8</td>
+                                    <td>43,20</td>
+                                </tr>
+                                <tr>
+                                    <td>Criptomoedas</td>
+                                    <td>1.400,00</td>
+                                    <td>3,0</td>
+                                    <td>42,00</td>
+                                </tr>
+                            </tbody>
+
+                            <tfoot>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>22.000,00</td>
+                                    <td>2,33</td>
+                                    <td>345,20</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3"> <!-- QUARTA LINHA -->
+
+            <div class="col-auto card-col"> <!-- GRÁFICO -->
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="flex-between mb-3 gap-2"> <!-- LINHA DE TITULO DO GRÁFICO -->
+                            <h5 class="card-title">Evolução</h5>
+                            <div class="d-flex flex-wrap justify-content-end gap-2">
+                                <div class="flex-between gap-1">
+                                    <label for="startDate">Inicio:</label>
+                                    <input type="month" id="startDate" class="form-control form-control-sm">
+                                </div>
+                                <div class="flex-between gap-1">
+                                    <label for="endDate">Fim:</label>
+                                    <input type="month" id="endDate" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <canvas id="chart12m"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-auto card-col"> <!-- MODELO FINANCEIRO -->
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="flex-between"> <!-- LINHA DE TITULO DO MODELO -->
+                            <h5 class="card-title">Modelo Escolhido: 50/30/20</h5>
+                            <a href="#" class="btn btn-primary btn-sm">Ver Modelos</a>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center gap-3 h-100 pb-3">
+                            <img 
+                                src="./images/imagem.png" 
+                                class="img-fluid rounded" 
+                                alt="Modelo 50/30/20"
+                                id="imagemCard"
+                            >
+                            <ul class="list-unstyled mb-0">
+                                <li><strong>50%</strong> — Necessidades, como aluguel, transporte, mercado</li>
+                                <li><strong>30%</strong> — Desejos, como lazer, superfluos, viagens</li>
+                                <li><strong>20%</strong> — Poupança e investimentos, como educação, ativos financeiros</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+	</main>
+
+    <footer class="fixed-bottom text-center text-body-secondary border-top pt-1 bg-body-tertiary">
+        AssistantX © 2025
+    </footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	<script src="js/script.js"></script>
+
+</body>
+</html>

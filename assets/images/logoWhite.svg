@@ -1,0 +1,21 @@
+<svg width="600" height="152.37704918032787" xmlns="http://www.w3.org/2000/svg" role="img">
+ <defs>
+  <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0%" stop-color="#2D9CDB"/>
+   <stop offset="100%" stop-color="#2EC4B6"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_1">
+   <circle id="svg_2" cx="77" cy="77" r="70" fill="url(#grad1)"/>
+   <rect id="svg_3" x="50" y="67" width="12" height="35" rx="3" fill="white" opacity="0.9"/>
+   <rect id="svg_4" x="70" y="52" width="12" height="50" rx="3" fill="white" opacity="0.9"/>
+   <rect id="svg_5" x="90" y="42" width="12" height="60" rx="3" fill="white" opacity="0.9"/>
+   <path id="svg_6" d="m47,102l70,-55" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  </g>
+  <text stroke="null" transform="matrix(1.5244 0 0 1.48436 -78.5635 -9.91813)" id="svg_7" x="150.24249" y="72.88824" font-family="Inter, Arial, sans-serif" font-size="55" font-weight="700" fill="#0F172A">Assistent
+   <tspan stroke="null" id="svg_8" font-weight="800" fill="#FF6B6B">X</tspan></text>
+  <text stroke="null" transform="matrix(1.44554 0 0 1.44554 -65.0493 -45.696)" id="svg_9" x="146" y="120" font-family="Inter, Arial, sans-serif" font-size="18" fill="#475569">Gestao de orcamento pessoal</text>
+ </g>
+</svg>
